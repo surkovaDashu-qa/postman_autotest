@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "3acaef79-01dd-4707-a0e9-1ee66d7b1c0f",
+		"name": "Starwars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30958405"
+	},
+	"item": [
+		{
+			"name": "people id-10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Проверяем имя C-3P0\"), function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[1].name).to.eql(\"C-3P0\");",
+							"}",
+							"",
+							"",
+							"pm.test(\"Проверяем есть ли тип контента\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/people/10",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"people",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "planets id-7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Проверяем тип климата\"), function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[3].climate).to.eql(\"frozen\");",
+							"}",
+							"",
+							"",
+							"pm.test(\"Проверяем есть ли тип контента\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/planets/7",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"planets",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "starships id-5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Проверяем модель\"), function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[5].model).to.eql(\"YT-1300 light freighter\");",
+							"}",
+							"",
+							"",
+							"pm.test(\"Проверяем есть ли тип контента\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/starships/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"starships",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://swapi.py4e.com/api",
+			"type": "string"
+		}
+	]
+}
